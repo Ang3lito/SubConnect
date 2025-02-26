@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/login.cshtml"; // Set the layout at the top
+}
+
+<div class="login-header">
+    <img src="~/image/logo.png" alt="logo">
+    <p class="tagline">Your community, your home. Stay connected and informed.</p>
+</div>
+<div class="container">
+    <div class="login-card">
+        <form>
+            <div class="form-group-username">
+                <input type="text" class="form-control" placeholder="Username" required>
+            </div>
+            <div class="form-group-password">
+                <input type="password" class="form-control" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Log In</button>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+            <div class="divider"></div>
+            <a href="@Url.Action("Register", "Home")" class="btn btn-outline">Create New Account</a>
+        </form>
+    </div>
+</div>
