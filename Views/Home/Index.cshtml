@@ -1,24 +1,40 @@
 ﻿@{
-    Layout = "~/Views/Shared/login.cshtml"; // Set the layout at the top
+    Layout = "~/Views/Shared/Index.cshtml"; // Set the layout at the top
 }
 
-<div class="login-header">
-    <img src="~/image/logo.png" alt="logo">
-    <p class="tagline">Your community, your home. Stay connected and informed.</p>
-</div>
+
 <div class="container">
-    <div class="login-card">
-        <form>
-            <div class="form-group-username">
-                <input type="text" class="form-control" placeholder="Username" required>
-            </div>
-            <div class="form-group-password">
-                <input type="password" class="form-control" placeholder="Password" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Log In</button>
-            <a href="#" class="forgot-password">Forgot Password?</a>
-            <div class="divider"></div>
-            <a href="@Url.Action("Register", "Home")" class="btn btn-outline">Create New Account</a>
-        </form>
-    </div>
+    <!-- Header Section -->
+    <header>
+        <!-- Logo -->
+        <div class="logo">
+            <img src="/image/logo.png" alt="San Myshuno Logo"> <!-- Replace with your logo -->
+        </div>
+
+        <!-- Authentication Button -->
+        <div class="auth-button">
+            <a href="@Url.Action("login", "Home")" class="btn-login">Login / Register</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="overlay"></DIV>
+                <div class="hero-content">
+                    <p>
+                        Discover all things San Myshuno on our official website! Stay up-to-date with
+                        the latest news, events, and community happenings in this bustling subdivision.
+                        From new developments to neighborhood highlights, we provide all the
+                        essential information to help you stay connected to the heart of San Myshuno.
+                    </p>
+                </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>SAN MYSHUNO | &copy; 2025</p>
+    </footer>
 </div>

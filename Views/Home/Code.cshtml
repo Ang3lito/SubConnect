@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/security.cshtml"; // Set the layout at the top
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <h1>Enter security code</h1>
+        <p>Please check your email for a message with your code.</p>
+    </div>
+    <hr class="divider">
+    <div class="card-body">
+        <div class="form-group">
+            <div class="floating-label">
+                <input type="email" class="form-control" placeholder="">
+                <label for="Code">Code</label>
+            </div>
+        </div>
+        <div class="button-group">
+            <button class="btn btn-cancel" onclick="location.href='@Url.Action("Email", "Home")'">Cancel</button>
+            <button class="btn btn-search" onclick="location.href='@Url.Action("NewPassword", "Home")'">Continue</button>
+        </div>
+    </div>
+</div>

@@ -15,7 +15,27 @@ namespace SubConnect.Controllers
             return View();
         }
 
+        public IActionResult Login()
+        {
+            return View();
+        }
+
         public IActionResult Register()
+        {
+            return View();
+        }
+
+        public IActionResult Email()
+        {
+            return View();
+        }
+
+        public IActionResult Code()
+        {
+            return View();
+        }
+
+        public IActionResult NewPassword()
         {
             return View();
         }

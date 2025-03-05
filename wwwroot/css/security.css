@@ -1,0 +1,247 @@
+﻿body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #ffffff;
+}
+
+.card {
+    width: 90%; /* Responsive width */
+    max-width: 500px; /* Maximum width for larger screens */
+    height: auto; /* Auto height to fit content */
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px; /* Add margin for smaller screens */
+}
+
+.card-header {
+    padding: 20px; /* Reduced padding for smaller screens */
+    text-align: center;
+}
+
+    .card-header h1 {
+        margin: 0 0 8px;
+        font-size: 24px; /* Smaller font size for smaller screens */
+        font-weight: 600;
+    }
+
+    .card-header p {
+        margin: 0;
+        color: #555;
+        font-size: 14px; /* Smaller font size for smaller screens */
+    }
+
+.divider {
+    height: 1px;
+    background-color: #e0e0e0;
+    border: none;
+    margin: 0;
+}
+
+.card-body {
+    padding: 20px; /* Reduced padding for smaller screens */
+}
+
+.form-group {
+    margin-bottom: 30px; /* Reduced margin for smaller screens */
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px; /* Reduced padding for smaller screens */
+    font-size: 14px; /* Smaller font size for smaller screens */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px; /* Reduced gap for smaller screens */
+    margin-bottom: 30px; /* Reduced margin for smaller screens */
+}
+
+.button-group-1 {
+    display: flex;
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 30px; /* Reduced margin for smaller screens */
+    justify-content: flex-end;
+}
+
+.btn {
+    flex: 1;
+    padding: 8px; /* Reduced padding for smaller screens */
+    font-size: 14px; /* Smaller font size for smaller screens */
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-cancel {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #000;
+}
+
+    .btn-cancel:hover {
+        background-color: #f5f5f5;
+    }
+
+.btn-search {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+}
+
+.logo-container {
+    text-align: center;
+}
+
+.logo {
+    max-width: 100%; /* Make logo responsive */
+    height: auto;
+}
+
+/* Floating Label Styles */
+.floating-label {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+    .floating-label label {
+        position: absolute;
+        top: 50%;
+        left: 0.75rem;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        color: #000000;
+        pointer-events: none;
+        transition: all 0.2s ease;
+    }
+
+    .floating-label input:focus ~ label,
+    .floating-label input:not(:placeholder-shown) ~ label,
+    .floating-label select:focus ~ label,
+    .floating-label select:not([value=""]) ~ label {
+        top: 0;
+        left: 0.75rem;
+        font-size: 0.8rem;
+        color: #000000;
+        background: white;
+        padding: 0 0.25rem;
+    }
+
+    .floating-label input,
+    .floating-label select {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        font-size: 1rem;
+        background: transparent;
+    }
+
+        .floating-label input:focus,
+        .floating-label select:focus {
+            outline: none;
+            border-color: #000000;
+        }
+
+/* Media Queries for Responsiveness */
+
+@media (min-width: 760px) and (max-width: 1024px) {
+    /* Styles for tablets */
+    .card {
+        width: 80%; /* Adjust width for tablets */
+    }
+
+    .card-header {
+        padding: 25px;
+    }
+
+        .card-header h1 {
+            font-size: 28px;
+        }
+
+        .card-header p {
+            font-size: 16px;
+        }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 40px;
+    }
+
+    .form-control {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .button-group {
+        gap: 12px;
+        margin-bottom: 40px;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 768px) {
+    .card {
+        width: 70%; /* Adjust width for tablets and larger screens */
+    }
+
+    .card-header {
+        padding: 30px;
+    }
+
+        .card-header h1 {
+            font-size: 30px; /* Larger font size for larger screens */
+        }
+
+        .card-header p {
+            font-size: 15px; /* Larger font size for larger screens */
+        }
+
+    .card-body {
+        padding: 40px 24px;
+    }
+
+    .form-group {
+        margin-bottom: 50px; /* Larger margin for larger screens */
+    }
+
+    .form-control {
+        padding: 12px; /* Larger padding for larger screens */
+        font-size: 16px; /* Larger font size for larger screens */
+    }
+
+    .button-group {
+        gap: 12px; /* Larger gap for larger screens */
+        margin-bottom: 50px; /* Larger margin for larger screens */
+    }
+
+    .btn {
+        padding: 10px; /* Larger padding for larger screens */
+        font-size: 16px; /* Larger font size for larger screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    .card {
+        width: 100%; /* Adjust width for desktops */
+    }
+}

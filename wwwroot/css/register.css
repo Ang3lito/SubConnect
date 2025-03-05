@@ -17,7 +17,7 @@
 /* Body Layout */
 body {
     background-color: var(--background-color);
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,12 +27,14 @@ body {
 /* Main Container */
 .container {
     background-color: white;
+    border: 1px solid #e2e8f0;
     border-radius: 8px;
     text-align: center;
     padding: 2rem 2rem;
     width: 100%;
     max-width: 440px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 /* Logo */
@@ -134,7 +136,8 @@ button {
 }
 
     button:hover {
-        background-color: #333;
+        background-color: black;
+        color: white;
     }
 
 /* Login Link */
@@ -151,6 +154,53 @@ button {
         .login-link a:hover {
             text-decoration: underline;
         }
+
+/* Floating Label Styles */
+.floating-label {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+
+    .floating-label label {
+        position: absolute;
+        top: 50%;
+        left: 0.75rem;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        color: #000000;
+        pointer-events: none;
+        transition: all 0.2s ease;
+    }
+
+    .floating-label input:focus ~ label,
+    .floating-label input:not(:placeholder-shown) ~ label,
+    .floating-label select:focus ~ label,
+    .floating-label select:not([value=""]) ~ label {
+        top: 0;
+        left: 0.75rem;
+        font-size: 0.8rem;
+        color: #000000;
+        background: white;
+        padding: 0 0.25rem;
+    }
+
+    .floating-label input,
+    .floating-label select {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        font-size: 1rem;
+        background: transparent;
+    }
+
+        .floating-label input:focus,
+        .floating-label select:focus {
+            outline: none;
+            border-color: #000000;
+        }
+
 
 /* ------------------ Responsive Media Queries ------------------ */
 
