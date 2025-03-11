@@ -1,0 +1,62 @@
+﻿@{
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<!-- Post Input -->
+<div class="post-input" id="postInput">
+    <div class="post-input-content">
+        <img src="~/image/Profile/profile1.jpg" alt="Profile">
+        <input type="text" placeholder="Write something..." readonly>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="postModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Create post</h2>
+            <button class="close">&#10005;</button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-post-input">
+                <div class="user-details">
+                    <img src="~/image/Profile/profile1.jpg" alt="Profile">
+                    <p class="username">Cillian Murphy</p>
+                </div>
+                <div class="context">
+                    <textarea id="modalPostInput" placeholder="Write something..."></textarea>
+                </div>
+            </div>
+            <div class="post-options">
+                <button class="add-to-post">Add to your post</button>
+            </div>
+            <button id="modalPostButton">Post</button>
+        </div>
+    </div>
+</div>
+
+    <script>
+            // Get elements
+const postInput = document.getElementById('postInput');
+const postModal = document.getElementById('postModal');
+const closeButton = postModal.querySelector('.close');
+
+// Open modal when post-input is clicked
+postInput.addEventListener('click', () => {
+    postModal.classList.add('active');
+});
+
+// Close modal when close button is clicked
+closeButton.addEventListener('click', () => {
+    postModal.classList.remove('active');
+});
+
+// Close modal when clicking outside the modal
+window.addEventListener('click', (event) => {
+    if (event.target === postModal) {
+        postModal.classList.remove('active');
+    }
+});
+
+</script>
+

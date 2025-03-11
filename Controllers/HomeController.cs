@@ -39,5 +39,25 @@ namespace SubConnect.Controllers
         {
             return View();
         }
+
+        public IActionResult Admin()
+        {
+            return View();
+        }
+
+        public IActionResult AdminPost()
+        {
+            return View();
+        }
+
+        public IActionResult AdminProfile()
+        {
+            return View();
+        }
+
+        public IActionResult AdminNotification()
+        {
+            return View();
+        }
     }
 }
