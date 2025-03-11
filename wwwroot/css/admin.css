@@ -232,9 +232,9 @@ body {
 
 .post-content {
     font-size: 14px;
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 10px; /* Reduced margin to match the design */
+    padding-bottom: 10px; /* Adjusted padding for better spacing */
+    border-bottom: 1px solid #e0e0e0; /* Lightened the divider */
 }
 
 .post-comments {
@@ -242,6 +242,7 @@ body {
     align-items: center;
     color: #666;
     font-size: 12px;
+    padding-top: 5px; /* Added padding to align correctly */
 }
 
     .post-comments svg {
@@ -250,11 +251,14 @@ body {
         height: 16px;
     }
 
-.comment-input {
-    padding-left: 30px;
-    display: flex;
-    gap: 10px;
-}
+    .post-comments input {
+        border: none;
+        width: 100%;
+    }
+
+        .post-comments input:focus {
+            outline: none;
+        }
 
     .comment-input input {
         flex: 1;
@@ -513,34 +517,38 @@ h2 {
 }
 
 
-/*USER MANAGEMENT*/
+/*FACILITY MANAGEMENT*/
 
 .container {
-    width: 400px;
-    background: #fff;
+    width: 1000px;
+    background: none;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative; /* Needed for positioning the add-btn */
 }
 
-.tabs {
+.tabs1 {
     display: flex;
+    justify-content: left; /* Keeps tabs centered */
     margin-bottom: 20px;
+    gap: 10px;
 }
 
-.tab {
-    flex: 1;
-    padding: 10px;
+.tab1 {
+    width: 120px; /* Fixed width */
+    padding: 3px;
     text-align: center;
+    font-size: 12px;
     cursor: pointer;
     border: 1px solid #ccc;
     border-radius: 20px;
     background-color: white;
+    text-decoration: none;
+    color: black;
 }
-
-    .tab.active {
-        background-color: black;
-        color: white;
+    .tab1:hover,
+    .tab1.active {
+        background-color: black !important;
+        color: white !important;
     }
 
 .facility-list {
@@ -557,14 +565,17 @@ h2 {
 }
 
     .facility-item img {
-        width: 30px;
-        height: 30px;
+        width: 34px;
+        height: 34px;
         border-radius: 50%;
         margin-right: 10px;
     }
 
 .facility-name {
     flex: 1;
+    font-size: 15px;
+    font-weight:450;
+    
 }
 
 .options {
@@ -572,13 +583,48 @@ h2 {
 }
 
 .add-btn {
-    display: block;
-    margin-top: 20px;
-    padding: 10px;
+    width: 150px; /* Fixed width */
+    padding: 3px;
+    font-size: 12px;
     text-align: center;
-    background: black;
-    color: white;
+    background: white;
+    color: black;
     border-radius: 20px;
+    border: 1px solid #ccc; 
     cursor: pointer;
     text-decoration: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
+    
+    .add-btn:hover,
+    .add-btn.active {
+        background-color: black;
+        color: white;
+    }
+
+.facility-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-name {
+    flex: 2;
+    color: black;
+    font-weight: 450;
+}
+
+.status {
+    flex: 1;
+    font-weight: bold;
+}
+
+    .status.paid {
+        color: green;
+    }
+
+    .status.pending {
+        color: orange;
+    }

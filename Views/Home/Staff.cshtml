@@ -26,18 +26,3 @@
     <a href="#" class="add-btn">Add Staff +</a>
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const tabs = document.querySelectorAll(".tab1, .add-btn");
-
-        tabs.forEach(tab => {
-            tab.addEventListener("click", function () {
-                // Remove "active" class from all tabs
-                tabs.forEach(t => t.classList.remove("active"));
-
-                // Add "active" class to the clicked tab
-                this.classList.add("active");
-            });
-        });
-    });
-</script>

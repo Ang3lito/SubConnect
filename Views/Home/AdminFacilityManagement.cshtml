@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+
+<div class="container">
+    <div class="tabs1">
+        <a href="@Url.Action("AdminFacilityManagement", "Home")" class="tab1">
+            Facilities
+        </a>
+        <a href="@Url.Action("FacilityRequest", "Home")" class="tab1">
+            Requests
+        </a>
+    </div>
+    <ul class="facility-list">
+        <li class="facility-item"><img src="~/image/logo/basketball.jpg" alt="baskwtball"> <span class="facility-name">Basketball Court</span> <span class="options">&#x22EE;</span></li>
+        <li class="facility-item"><img src="~/image/logo/tennis.webp" alt="tennis"> <span class="facility-name">Tennis Court</span> <span class="options">&#x22EE;</span></li>
+        <li class="facility-item"><img src="~/image/logo/function.jpg" alt="funtionhall"> <span class="facility-name">Function Hall</span> <span class="options">&#x22EE;</span></li>
+        <li class="facility-item"><img src="~/image/logo/swimmingpool.webp" alt="swimmingpool"> <span class="facility-name">Swimming Pool</span> <span class="options">&#x22EE;</span></li>
+        <li class="facility-item"><img src="~/image/logo/badmenton.jpg" alt="badminton"> <span class="facility-name">Badminton Court</span> <span class="options">&#x22EE;</span></li>
+        <li class="facility-item"><img src="~/image/logo/playground.jpg" alt="playground"> <span class="facility-name">Playground</span> <span class="options">&#x22EE;</span></li>
+        <li class="facility-item"><img src="~/image/logo/fitness.jpg" alt="fitness"> <span class="facility-name">Fitness Gym</span> <span class="options">&#x22EE;</span></li>
+        <li class="facility-item"><img src="~/image/logo/sauna.jpg" alt="sauna"> <span class="facility-name">Sauna</span> <span class="options">&#x22EE;</span></li>
+        <li class="facility-item"><img src="~/image/logo/church.jpg" alt="church"> <span class="facility-name">Church</span> <span class="options">&#x22EE;</span></li>
+    </ul>
+    <a href="#" class="add-btn">Add Facility +</a>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const tabs = document.querySelectorAll(".tab1, .add-btn");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", function () {
+                // Remove "active" class from all tabs
+                tabs.forEach(t => t.classList.remove("active"));
+
+                // Add "active" class to the clicked tab
+                this.classList.add("active");
+            });
+        });
+    });
+</script>

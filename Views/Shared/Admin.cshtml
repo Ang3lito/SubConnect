@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] Subconnect</title>
     <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -32,7 +32,7 @@
         </a>
         <div class="admin-tools">
             <h3>Admin Tools</h3>
-            <a href="@Url.Action("AdminUserManagement", "Home")" class="tab">
+            <a href="@Url.Action("AdminUserManagement", "Home")" class="menu-item">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                     <circle cx="12" cy="7" r="4"></circle>
@@ -48,7 +48,7 @@
                 </svg>
                 Community Passes
             </a>
-            <a href="#" class="menu-item">
+            <a href="@Url.Action("AdminFacilityManagement", "Home")" class="menu-item">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
@@ -85,56 +85,90 @@
     </div>
 </body>
 </html>
-
 <script>
-        document.addEventListener('DOMContentLoaded', function () {
+       document.addEventListener('DOMContentLoaded', function () {
+        // Select elements safely
         const postInput = document.getElementById('postInput');
         const postModal = document.getElementById('postModal');
         const closeModal = document.querySelector('.close');
         const modalPostButton = document.getElementById('modalPostButton');
-        const postContainer = document.getElementById('postContainer');
         const modalPostInput = document.getElementById('modalPostInput');
 
-        // Prevent modal from opening when clicking the "Post" tab
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', function (event) {
-                if (this.textContent.trim() === "Post") {
-                    event.stopPropagation(); // Prevents event from bubbling up
-                }
-            });
-        });
+        if (!postInput || !postModal || !closeModal || !modalPostButton || !modalPostInput) {
+            console.error("One or more elements not found in the DOM");
+            return; // Stop execution if any element is missing
+        }
 
-        // Open modal when clicking on the post input
-        postInput.addEventListener('click', function (event) {
-            // Ensure it only opens when clicking the input field, not the tab
-            if (!event.target.closest('.tab')) {
-                postModal.style.display = 'block';
-            }
+        // Open modal when clicking on post input
+        postInput.addEventListener('click', function () {
+            postModal.classList.add('active');
         });
 
         // Close modal when clicking the "X" button
         closeModal.addEventListener('click', function () {
-            postModal.style.display = 'none';
+            postModal.classList.remove('active');
+            modalPostInput.value = ""; // Clear input
         });
 
         // Close modal when clicking outside of it
         window.addEventListener('click', function (event) {
             if (event.target === postModal) {
-                postModal.style.display = 'none';
+                postModal.classList.remove('active');
+                modalPostInput.value = "";
             }
         });
 
-        // Post the content
+        // Handle post submission
         modalPostButton.addEventListener('click', function () {
-            const postContent = modalPostInput.value.trim();
-            if (postContent) {
-                const postElement = document.createElement('div');
-                postElement.classList.add('post');
-                postElement.innerHTML = `<div class="post-content">${postContent}</div>`;
-                postContainer.prepend(postElement);
-                modalPostInput.value = '';
-                postModal.style.display = 'none';
+            const postText = modalPostInput.value.trim();
+            if (postText === "") {
+                alert("Post cannot be empty!");
+                return;
             }
+
+            // Create new post element
+            const postElement = document.createElement("div");
+            postElement.classList.add("post");
+            postElement.innerHTML = `
+                <div class="post-content">
+                    <div class="post-header">
+                        <img src="~/image/Profile/profile1.jpg" alt="Profile" class="post-profile-pic">
+                        <div class="post-info">
+                            <p class="post-username">Cillian Murphy <span class="post-role">Admin</span></p>
+                            <p class="post-time">• 1m ago</p>
+                        </div>
+                        <button class="post-options">⋯</button>
+                    </div>
+                    <div class="post-body">
+                        <p class="post-text">${postText}</p>
+                    </div>
+                    <div class="post-footer">
+                        <button class="post-comment">
+                            <i class="fa-regular fa-comment"></i> Comments
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            // Ensure postContainer exists before appending
+            let postContainer = document.getElementById('postContainer');
+                if (!postContainer) {
+                postContainer = document.createElement('div');
+                postContainer.id = "postContainer";
+
+            // Append inside the content div
+             const contentDiv = document.querySelector('.content');
+                if (contentDiv) {
+                    contentDiv.appendChild(postContainer);
+                } else {
+                console.error("Content div not found!");
+                }
+    }
+            postContainer.prepend(postElement);
+
+            // Close modal & clear input
+            postModal.classList.remove('active');
+            modalPostInput.value = "";
         });
     });
 

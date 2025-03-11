@@ -35,28 +35,3 @@
     </div>
 </div>
 
-    <script>
-            // Get elements
-const postInput = document.getElementById('postInput');
-const postModal = document.getElementById('postModal');
-const closeButton = postModal.querySelector('.close');
-
-// Open modal when post-input is clicked
-postInput.addEventListener('click', () => {
-    postModal.classList.add('active');
-});
-
-// Close modal when close button is clicked
-closeButton.addEventListener('click', () => {
-    postModal.classList.remove('active');
-});
-
-// Close modal when clicking outside the modal
-window.addEventListener('click', (event) => {
-    if (event.target === postModal) {
-        postModal.classList.remove('active');
-    }
-});
-
-</script>
-

@@ -59,5 +59,28 @@ namespace SubConnect.Controllers
         {
             return View();
         }
+
+        public IActionResult AdminUserManagement()
+        {
+            ViewBag.ActiveTab = "AdminUserManagement";
+            return View();
+        }
+
+        public IActionResult Staff()
+        {
+            return View();
+        }
+
+
+        public IActionResult AdminFacilityManagement()
+        {
+            return View();
+        }
+
+        public IActionResult FacilityRequest()
+        {
+            return View();
+        }
     }
 }
+

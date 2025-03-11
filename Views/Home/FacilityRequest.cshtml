@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+
+<div class="container">
+    <div class="tabs1">
+        <a href="@Url.Action("AdminFacilityManagement", "Home")" class="tab1">
+            Facilities
+        </a>
+        <a href="@Url.Action("FacilityRequest", "Home")" class="tab1">
+            Requests
+        </a>
+    </div>
+    <div class="facility-list">
+        <ul>
+            <li class="facility-item">
+                <img src="~/image/logo/basketball.jpg" alt="Basketball Court">
+                <span class="facility-name">Basketball Court</span>
+                <span class="user-name">Angelito Lingo</span>
+                <span class="status paid">PAID</span>
+                <span class="options">&#x22EE;</span>
+            </li>
+            <li class="facility-item">
+                <img src="~/image/logo/basketball.jpg" alt="Basketball Court">
+                <span class="facility-name">Basketball Court</span>
+                <span class="user-name">Angelito Lingo</span>
+                <span class="status pending">PENDING</span>
+                <span class="options">&#x22EE;</span>
+            </li>
+            <li class="facility-item">
+                <img src="~/image/logo/basketball.jpg" alt="Basketball Court">
+                <span class="facility-name">Basketball Court</span>
+                <span class="user-name">Angelito Lingo</span>
+                <span class="status paid">PAID</span>
+                <span class="options">&#x22EE;</span>
+            </li>
+            <!-- Add more facility items here -->
+        </ul>
+    </div>
+</div>
