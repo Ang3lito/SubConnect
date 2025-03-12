@@ -21,6 +21,14 @@ body {
     position: fixed;
 }
 
+.menu-item:hover,
+.menu-item.active {
+    background-color: #E6E6E6 !important;
+    color: black !important;
+    border-radius: 10px;
+    transition: 0.3s ease, color 0.3s ease;
+}
+
 .profile {
     display: flex;
     align-items: center;
@@ -110,20 +118,33 @@ body {
 }
 
 .tab {
+    position: relative; /* Needed for ::after positioning */
     text-align: center;
     cursor: pointer;
     font-size: 16px;
     color: #333;
-    border-bottom: 2px solid transparent;
-    transition: border-bottom 0.3s ease, color 0.3s ease;
     text-decoration: none;
+    padding: 8px 12px; /* Adjust padding */
+    transition: color 0.3s ease;
 }
 
-.tab:hover,
-.tab.active {  /* Keep hover effect when active */
-    border-bottom: 2px solid #000000;
-    color: #000000;
-}
+    .tab::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -2px; /* Adjust position below text */
+        width: 0%;
+        height: 4px; /* Thickness of underline */
+        background-color: black;
+        border-radius: 2px; /* Rounded underline */
+        transition: 0.3s ease, left 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .tab:hover::after,
+    .tab.active::after {
+        width: 80%; /* Adjust width of underline */
+    }
 
 
 .content {
@@ -281,8 +302,6 @@ body {
 
     .post-input-content input {
         border: none;
-        background: #f0f2f5;
-        border-radius: 20px;
         padding: 10px 15px;
         width: 100%;
         font-size: 14px;
@@ -600,7 +619,8 @@ h2 {
 /*NOTIFICATION*/
 
 .notification-container {
-    width: 145%;
+    width: 100%;
+    max-width: 1000px;
     margin: auto;
     background:none;
     border-radius: 8px;
@@ -634,6 +654,7 @@ h2 {
 
 .notification-table tbody tr:hover {
     background: #f9f9f9;
+    transition: 0.3s ease, color 0.3s ease;
 }
 
 .notification-table tbody tr:last-child td {
@@ -674,6 +695,7 @@ h2 {
     .tab1.active {
         background-color: black !important;
         color: white !important;
+        transition: 0.3s ease, color 0.3s ease;
     }
 
 .facility-list {
