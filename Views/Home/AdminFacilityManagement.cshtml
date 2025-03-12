@@ -28,14 +28,21 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const tabs = document.querySelectorAll(".tab1, .add-btn");
+        // Get all tab links
+        const tabs = document.querySelectorAll(".tab1");
 
+        // Get current page URL
+        const currentUrl = window.location.href;
+
+        // Loop through tabs and set active class
         tabs.forEach(tab => {
-            tab.addEventListener("click", function () {
-                // Remove "active" class from all tabs
-                tabs.forEach(t => t.classList.remove("active"));
+            if (tab.href === currentUrl) {
+                tab.classList.add("active");
+            }
 
-                // Add "active" class to the clicked tab
+            // Add click event to set active state
+            tab.addEventListener("click", function () {
+                tabs.forEach(t => t.classList.remove("active"));
                 this.classList.add("active");
             });
         });

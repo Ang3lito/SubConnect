@@ -86,7 +86,7 @@
 </body>
 </html>
 <script>
-       document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function () {
         // Select elements safely
         const postInput = document.getElementById('postInput');
         const postModal = document.getElementById('postModal');
@@ -130,40 +130,43 @@
             const postElement = document.createElement("div");
             postElement.classList.add("post");
             postElement.innerHTML = `
-                <div class="post-content">
-                    <div class="post-header">
-                        <img src="~/image/Profile/profile1.jpg" alt="Profile" class="post-profile-pic">
+                <div class="post-header">
+                    <img src="/image/Profile/profile1.jpg" alt="Profile" class="post-profile-pic">
                         <div class="post-info">
-                            <p class="post-username">Cillian Murphy <span class="post-role">Admin</span></p>
+                        <p class="post-username">Cillian Murphy</p>
+                        <div class="post-details">
+                            <span class="post-role">Admin</span>
                             <p class="post-time">• 1m ago</p>
                         </div>
-                        <button class="post-options">⋯</button>
                     </div>
-                    <div class="post-body">
-                        <p class="post-text">${postText}</p>
-                    </div>
-                    <div class="post-footer">
-                        <button class="post-comment">
-                            <i class="fa-regular fa-comment"></i> Comments
-                        </button>
-                    </div>
+                    <button class="post-options">⋯</button>
+                </div>
+                <div class="post-body">
+                    <p class="post-text">${postText}</p>
+                </div>
+                <div class="post-footer">
+                    <button class="post-comment">
+                        <i class="fa-regular fa-comment"></i>&nbsp&nbspComments
+                    </button>
                 </div>
             `;
 
             // Ensure postContainer exists before appending
             let postContainer = document.getElementById('postContainer');
-                if (!postContainer) {
+            if (!postContainer) {
                 postContainer = document.createElement('div');
                 postContainer.id = "postContainer";
 
-            // Append inside the content div
-             const contentDiv = document.querySelector('.content');
+                // Append inside the content div
+                const contentDiv = document.querySelector('.content');
                 if (contentDiv) {
                     contentDiv.appendChild(postContainer);
                 } else {
-                console.error("Content div not found!");
+                    console.error("Content div not found!");
                 }
-    }
+            }
+
+            // Add the new post at the top of the container
             postContainer.prepend(postElement);
 
             // Close modal & clear input
