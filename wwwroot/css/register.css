@@ -201,7 +201,11 @@ button {
             border-color: #000000;
         }
 
-
+.text-danger {
+    display: block;
+    font-size: 0.875rem;
+    min-height: 20px; /* Ensures space for the error message */
+}
 /* ------------------ Responsive Media Queries ------------------ */
 
 /* Medium screens (tablets) up to 768px */

@@ -128,22 +128,22 @@ body {
     transition: color 0.3s ease;
 }
 
-    .tab::after {
+    .nav-item::after {
         content: "";
         position: absolute;
-        left: 50%;
+        left: 25%; /* Adjust position based on padding */
         bottom: -2px; /* Adjust position below text */
         width: 0%;
-        height: 4px; /* Thickness of underline */
-        background-color: black;
+        height: 4px; /* Thickness of underline */                
+        background-color: #6d4c41;
         border-radius: 2px; /* Rounded underline */
         transition: 0.3s ease, left 0.3s ease;
         transform: translateX(-50%);
     }
 
-    .tab:hover::after,
-    .tab.active::after {
-        width: 80%; /* Adjust width of underline */
+    .nav-item:hover::after,
+    .nav-item.active::after {
+        width: 30%; /* Adjust width of underline */
     }
 
 
